@@ -92,8 +92,8 @@ public class StageTest {
 		Component c = s.eval(null);
 		assertTrue("Kein MetallMachinenElement", c.getClass() == MetalMachineElement.class);
 		assertTrue("Falsche Anzahl an Elementen", ((MetalMachineElement)c).getMetals().size() == 2);
-		assertTrue("Falsches Element", ((MetalMachineElement)c).getMetals().get(0).getColorId() == 5);
-		assertTrue("Falsches Element", ((MetalMachineElement)c).getMetals().get(1).getColorId() == 5);
+		assertTrue("Falsches Element 0", ((MetalMachineElement)c).getMetals().get(0).getColorId() == 5);
+		assertTrue("Falsches Element 1", ((MetalMachineElement)c).getMetals().get(1).getColorId() == 5);
 	}
 
 }

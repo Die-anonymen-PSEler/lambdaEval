@@ -29,8 +29,11 @@ public class Metal extends GameElement {
 		// TODO Auto-generated method stub
 
 	}
-
 	
+	/**
+	 * debug use
+	 */
+	@Override
 	public String toString() {
 		return "Ich bin ein Metallstück und habe " + colorId;
 	}
@@ -42,8 +45,12 @@ public class Metal extends GameElement {
 		result = prime * result + colorId;
 		return result;
 	}
-
+	
 	@Override
+	/**
+	 * @param obj the other object in question
+	 * @return true if obj is the same or is also a metal object with the same color id
+	 */
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

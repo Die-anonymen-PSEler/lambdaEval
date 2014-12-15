@@ -5,19 +5,26 @@ import java.util.List;
 
 public class Stage extends Component {
 	
+	/**
+	 * the list storing all the components within the stage
+	 */
 	private List<Component> components;
 	
+	/**
+	 * creates a new instance of Stage
+	 */
 	public Stage() {
 		components = new ArrayList<Component>();
 	}
 	
+	/**
+	 * adds a component to the this stage
+	 * @param c the component that needs to be added
+	 */
 	public void addComponent(Component c) {
 		components.add(c);
 	}
 
-	/**
-	 * eval on stage always return a list with one element
-	 */
 	@Override
 	public Component eval(Component comp) {
 		for (int i = 0; i < components.size(); i++) {
