@@ -22,7 +22,13 @@ public class MetalMachineElement extends Component {
 	@Override
 	public Component eval(Component comp) {
 		// this thing can not process anything or was given nothing to process
-		if (metalOnly() || comp == null) {
+		if (metalOnly() && comp != null) {
+			Stage s = new Stage();
+			s.addComponent(this);
+			s.addComponent(comp);
+			return s;
+		}
+		else if (comp == null) {
 			return this;
 		}
 		int machineId = machine.getColorId();
@@ -38,6 +44,7 @@ public class MetalMachineElement extends Component {
 			for (int i = 0; i < counter; i++) {
 				s.addComponent(comp);
 			}
+			
 			result = s.eval(null);
 		}
 		else if (counter == 1) {
@@ -59,7 +66,7 @@ public class MetalMachineElement extends Component {
 		this.metals = metals;
 	}
 	
-	public void setMetal(Metal metal) {
+	public void addMetal(Metal metal) {
 		getMetals().add(metal);
 	}
 	

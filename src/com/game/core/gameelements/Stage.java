@@ -32,5 +32,8 @@ public class Stage extends Component {
 		}
 		return components.get(0);
 	}
-
+	
+	public String toString(){
+		return components.toString();
+	}
 }

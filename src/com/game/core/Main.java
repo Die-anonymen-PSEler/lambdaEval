@@ -11,21 +11,18 @@ public class Main {
 	public static void main(String[] args) {
 		Stage s = new Stage();
 		MetalMachineElement mmE = new MetalMachineElement();
-		mmE.setMachine(new Machine(1));
-		mmE.setMetal(new Metal(1));
+		mmE.addMetal(new Metal(2));
+		mmE.addMetal(new Metal(2));
+		mmE.setMachine(new Machine(2));
 		
-		MetalMachineElement mme2 = new MetalMachineElement();
-		mme2.setMachine(new Machine(2));
-		mme2.setMetal(new Metal(2));
-		
-		MetalMachineElement mme3 = new MetalMachineElement();
-		mme3.setMachine(new Machine(41));
-		mme3.setMetal(new Metal(42));
-		
+		MetalMachineElement metal = new MetalMachineElement();
+		metal.setMachine(null);
+		metal.addMetal(new Metal(5));
 		
 		s.addComponent(mmE);
-		s.addComponent(mme2);
-		s.addComponent(mme3);
+		s.addComponent(metal);
+		
+		
 		
 		Component c = s.eval(null);
 		System.out.println(c.toString());
