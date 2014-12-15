@@ -1,7 +1,5 @@
 package com.game.core.gameelements.elements;
 
-import javax.vecmath.Vector2d;
-
 public abstract class GameElement {
 	/**
 	 * the position of the gameelement
