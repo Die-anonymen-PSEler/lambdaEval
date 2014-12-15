@@ -19,6 +19,10 @@ public class LightStageElement extends Component {
 		this.light = l;
 	}
 	
+	public Light getLight() {
+		return light;
+	}
+	
 	
 
 	@Override

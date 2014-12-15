@@ -23,6 +23,7 @@ public class MetalMachineElement extends Component {
 	public Component eval(Component comp) {
 		// this thing can not process anything or was given nothing to process
 		if (metalOnly() && comp != null) {
+			// no machine -> no processing; comp needs to be added
 			Stage s = new Stage();
 			s.addComponent(this);
 			s.addComponent(comp);
@@ -40,12 +41,24 @@ public class MetalMachineElement extends Component {
 			}
 		}
 		if (counter > 1) {
-			Stage s = new Stage();
-			for (int i = 0; i < counter; i++) {
-				s.addComponent(comp);
+			if (comp.getClass() == MetalMachineElement.class && ((MetalMachineElement)comp).metalOnly()) {
+				MetalMachineElement compMachine = (MetalMachineElement)comp;
+				List<Metal> compMetals = compMachine.getMetals();
+				MetalMachineElement resultMachine = new MetalMachineElement();
+				for (int i = 0; i < counter; i++) {
+					for (int j = 0; j < compMetals.size(); j++) {
+						resultMachine.addMetal(compMetals.get(j));
+					}
+				}
+				return resultMachine;
 			}
-			
-			result = s.eval(null);
+			else {
+				Stage s = new Stage();
+				for (int i = 0; i < counter; i++) {
+					s.addComponent(comp);
+				}
+				result = s.eval(null);
+			}
 		}
 		else if (counter == 1) {
 			result = comp;
